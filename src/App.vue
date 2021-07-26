@@ -1,32 +1,59 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+  <v-app>
+    <NavigationBar />
+    <v-main>
+      <router-view />
+    </v-main>
+  </v-app>
 </template>
 
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
+import NavigationBar from "./components/NavigationBar.vue";
+
+@Component({
+  name: "App",
+  components: {
+    NavigationBar,
+  }
+})
+export default class App extends Vue {}
+</script>
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap");
+
+.h1 {
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 38px;
+  font-style: normal;
+  color: black;
 }
 
-#nav {
-  padding: 30px;
+.h2 {
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28px;
+  font-style: normal;
+  color: black;
 }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
+.body {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  font-style: normal;
+  color: black;
 }
 
-#nav a.router-link-exact-active {
-  color: #42b983;
+.label {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  font-style: normal;
+  color: black;
 }
 </style>
